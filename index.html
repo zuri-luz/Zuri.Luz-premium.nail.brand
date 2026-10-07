@@ -1,1 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Zuri Luz | Premium Nail Brand</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           GLOBAL STYLES
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #faf8f6;
+            color: #241f1d;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            padding: 28px 0;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 27px;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            position: relative;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: #241f1d;
+            bottom: -6px;
+            left: 0;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            width: 55%;
+            padding-top: 60px;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            color: #9b7771;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(55px, 7vw, 92px);
+            line-height: 0.98;
+            font-weight: 400;
+            max-width: 700px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 span {
+            font-style: italic;
+            color: #a8756d;
+        }
+
+        .hero-subtitle {
+            max-width: 480px;
+            font-size: 17px;
+            color: #706865;
+            margin-bottom: 38px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #241f1d;
+            color: #fff;
+            padding: 16px 32px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #a8756d;
+            transform: translateY(-3px);
+        }
+
+        .hero-decoration {
+            position: absolute;
+            width: 480px;
+            height: 580px;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #eadbd7;
+            border-radius: 240px 240px 0 0;
+        }
+
+        .hero-decoration::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 360px;
+            background: #c69a92;
+            left: 110px;
+            top: 100px;
+            border-radius: 160px 160px 0 0;
+        }
+
+        .hero-decoration::after {
+            content: "ZL";
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-size: 110px;
+            color: rgba(255,255,255,0.55);
+            left: 165px;
+            top: 210px;
+        }
+
+        /* =========================
+           ABOUT SECTION
+        ========================= */
+
+        .about {
+            padding: 140px 0;
+            background: #fff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            color: #a8756d;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        .about h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 400;
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .about-text {
+            color: #706865;
+            font-size: 16px;
+            max-width: 500px;
+        }
+
+        .about-card {
+            background: #eadbd7;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card-inner {
+            width: 70%;
+            height: 78%;
+            border: 1px solid rgba(36,31,29,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-card-inner span {
+            font-family: 'Playfair Display', serif;
+            font-size: 90px;
+            color: #241f1d;
+            font-style: italic;
+        }
+
+        /* =========================
+           FEATURES SECTION
+        ========================= */
+
+        .features {
+            padding: 140px 0;
+            background: #f4efed;
+        }
+
+        .features-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 70px;
+        }
+
+        .features-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 5vw, 60px);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .features-heading p {
+            color: #706865;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            background: #fff;
+            padding: 45px 35px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(36,31,29,0.08);
+        }
+
+        .feature-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #a8756d;
+            margin-bottom: 30px;
+        }
+
+        .feature h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 27px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            color: #77706d;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTACT SECTION
+        ========================= */
+
+        .contact {
+            padding: 140px 0;
+            background: #241f1d;
+            color: #fff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(45px, 6vw, 75px);
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .contact h2 span {
+            font-style: italic;
+            color: #d5aaa3;
+        }
+
+        .contact-description {
+            color: #c5bfbc;
+            max-width: 500px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 20px;
+        }
+
+        .contact-item small {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 10px;
+            color: #a8756d;
+            margin-bottom: 5px;
+        }
+
+        .contact-item a {
+            font-size: 15px;
+            transition: 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #d5aaa3;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #241f1d;
+            color: #fff;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+        }
+
+        .copyright {
+            font-size: 11px;
+            color: #9c9693;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 18px;
+            }
+
+            .hero-content {
+                width: 70%;
+            }
+
+            .hero-decoration {
+                opacity: 0.45;
+                right: -100px;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 22px 0;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .hero-content {
+                width: 100%;
+                position: relative;
+                z-index: 2;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+            }
+
+            .hero-decoration {
+                width: 300px;
+                height: 400px;
+                right: -120px;
+                opacity: 0.35;
+            }
+
+            .hero-decoration::before {
+                width: 170px;
+                height: 260px;
+                left: 65px;
+                top: 70px;
+            }
+
+            .hero-decoration::after {
+                font-size: 70px;
+                left: 105px;
+                top: 155px;
+            }
+
+            .about,
+            .features,
+            .contact {
+                padding: 90px 0;
+            }
+
+            .about-card {
+                min-height: 350px;
+            }
+
+            .contact-grid {
+                gap: 50px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER / NAVIGATION
+    ========================== -->
+
+    <header>
+        <div class="container nav">
+
+            <a href="#" class="logo">
+                Zuri Luz
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Benefits</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Premium Nail Brand
+                </div>
+
+                <h1>
+                    Beauty in<br>
+                    every <span>detail.</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Discover Zuri Luz — a modern nail brand created
+                    for effortless elegance, refined beauty, and
+                    confidence in every detail.
+                </p>
+
+                <a href="#contact" class="cta-button">
+                    DISCOVER ZURI LUZ
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Decorative Hero Visual -->
+        <div class="hero-decoration"></div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT SECTION
+    ========================== -->
+
+    <section class="about" id="about">
+
+        <div class="container about-grid">
+
+            <div>
+
+                <div class="section-label">
+                    About Zuri Luz
+                </div>
+
+                <h2>
+                    Designed for
+                    modern beauty.
+                </h2>
+
+                <p class="about-text">
+                    Zuri Luz brings together sophisticated design,
+                    modern aesthetics, and a passion for beautiful
+                    details. Our approach is simple — create
+                    premium nail experiences that feel effortless,
+                    elegant, and uniquely yours.
+                </p>
+
+            </div>
+
+            <div class="about-card">
+
+                <div class="about-card-inner">
+                    <span>zl</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FEATURES / BENEFITS SECTION
+    ========================== -->
+
+    <section class="features" id="features">
+
+        <div class="container">
+
+            <div class="features-heading">
+
+                <div class="section-label">
+                    Why Zuri Luz
+                </div>
+
+                <h2>
+                    Beauty with intention.
+                </h2>
+
+                <p>
+                    Every detail is thoughtfully created to bring
+                    a more refined and enjoyable beauty experience.
+                </p>
+
+            </div>
+
+
+            <div class="features-grid">
+
+                <div class="feature">
+
+                    <div class="feature-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Premium Quality
+                    </h3>
+
+                    <p>
+                        Carefully selected materials and thoughtful
+                        details designed to create a premium feel.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Modern Design
+                    </h3>
+
+                    <p>
+                        Clean, sophisticated aesthetics created for
+                        modern women who appreciate timeless beauty.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Effortless Beauty
+                    </h3>
+
+                    <p>
+                        Simple, elegant solutions that make your
+                        beauty routine feel effortless and refined.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT SECTION
+    ========================== -->
+
+    <section class="contact" id="contact">
+
+        <div class="container contact-grid">
+
+            <div>
+
+                <div class="section-label">
+                    Get in touch
+                </div>
+
+                <h2>
+                    Let's create<br>
+                    something <span>beautiful.</span>
+                </h2>
+
+                <p class="contact-description">
+                    Have a question or want to learn more about
+                    Zuri Luz? We'd love to hear from you.
+                </p>
+
+            </div>
+
+
+            <div class="contact-info">
+
+                <div class="contact-item">
+
+                    <small>
+                        Email
+                    </small>
+
+                    <a href="mailto:hello@zuriluz.com">
+                        hello@zuriluz.com
+                    </a>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <small>
+                        Instagram
+                    </small>
+
+                    <a href="#">
+                        @zuriluz
+                    </a>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <small>
+                        Location
+                    </small>
+
+                    <a href="#">
+                        Armenia
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <div class="footer-logo">
+                Zuri Luz
+            </div>
+
+            <div class="copyright">
+                © 2026 Zuri Luz. All rights reserved.
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
